@@ -281,7 +281,24 @@ require('lazy').setup({
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
-      require('which-key').setup()
+      require('which-key').setup {
+        icons = { rules = false, color = false },
+        replace = {
+          key = {
+            { '<Space>', 'SPC' },
+          },
+          desc = {
+            { '<Plug>%((.*)%)', '%1' },
+            { '^%+', '' },
+            { '<[cC]md>', '' },
+            { '<[cC][rR]>', '' },
+            { '<[sS]ilent>', '' },
+            { '^lua%s+', '' },
+            { '^call%s+', '' },
+            { '^:%s*', '' },
+          },
+        },
+      }
 
       -- -- Document existing key chains
       -- require('which-key').register {
@@ -398,6 +415,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>dr', builtin.oldfiles, { desc = 'Recent files' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
