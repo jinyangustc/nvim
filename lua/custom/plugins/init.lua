@@ -2,4 +2,14 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {}
+return {
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    priority = 1000,
+    init = function()
+      vim.cmd.colorscheme 'rose-pine-dawn'
+      vim.cmd.hi 'Comment gui=none'
+    end,
+  },
+}
