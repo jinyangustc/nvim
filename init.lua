@@ -861,6 +861,46 @@ require('lazy').setup({
         return '%2l:%-2v'
       end
 
+      -- shorten branch
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_git = function(args)
+        if statusline.is_truncated(args.trunc_width) then
+          return ''
+        end
+
+        local summary = vim.b.minigit_summary_string or vim.b.gitsigns_head
+        if summary == nil then
+          return ''
+        end
+
+        return (summary == '' and '-' or summary)
+      end
+
+      -- set statusline sections
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.active = function()
+        local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 120 }
+        local git = MiniStatusline.section_git { trunc_width = 40 }
+        -- local diff = MiniStatusline.section_diff { trunc_width = 75 }
+        local diagnostics = MiniStatusline.section_diagnostics { trunc_width = 75 }
+        local lsp = MiniStatusline.section_lsp { trunc_width = 75 }
+        local filename = MiniStatusline.section_filename { trunc_width = 140 }
+        -- local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 120 }
+        local location = MiniStatusline.section_location { trunc_width = 75 }
+        local search = MiniStatusline.section_searchcount { trunc_width = 75 }
+
+        return statusline.combine_groups {
+          { hl = mode_hl, strings = { mode } },
+          { hl = 'MiniStatuslineDevinfo', strings = { git } },
+          '%<', -- Mark general truncate point
+          { hl = 'MiniStatuslineFilename', strings = { filename } },
+          '%=', -- End left alignment
+          -- { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
+          { hl = 'MiniStatuslineLocation', strings = { diagnostics } },
+          { hl = mode_hl, strings = { search, location } },
+        }
+      end
+
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
 
