@@ -5,15 +5,15 @@
 --
 
 return {
-  -- {
-  --   'rose-pine/neovim',
-  --   name = 'rose-pine',
-  --   priority = 1000,
-  --   init = function()
-  --     vim.cmd.colorscheme 'rose-pine-dawn'
-  --     vim.cmd.hi 'Comment gui=none'
-  --   end,
-  -- },
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    priority = 1000,
+    init = function()
+      vim.cmd.colorscheme 'rose-pine-dawn'
+      -- vim.cmd.hi 'Comment gui=none'
+    end,
+  },
   -- {
   --   'bluz71/vim-moonfly-colors',
   --   name = 'moonfly',
@@ -25,22 +25,15 @@ return {
   --   end,
   -- },
   -- { 'rktjmp/lush.nvim' },
-  {
-    'zenbones-theme/zenbones.nvim',
-    dependencies = { 'rktjmp/lush.nvim' },
-    lazy = false,
-    priority = 1000,
-    init = function()
-      vim.g.zenbones = { lightness = 'dim', darken_comments = 45 }
-      vim.cmd.hi 'Comment gui=none'
-      vim.cmd.colorscheme 'zenbones'
-    end,
-  },
-  {
-    'tpope/vim-fugitive',
-    config = function()
-      vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = 'Git status' })
-    end,
-  },
-  { 'tpope/vim-rhubarb' },
+  -- {
+  --   'zenbones-theme/zenbones.nvim',
+  --   dependencies = { 'rktjmp/lush.nvim' },
+  --   lazy = false,
+  --   priority = 1000,
+  --   init = function()
+  --     vim.g.zenbones = { lightness = 'dim', darken_comments = 45 }
+  --     vim.cmd.hi 'Comment gui=none'
+  --     vim.cmd.colorscheme 'zenbones'
+  --   end,
+  -- },
 }
