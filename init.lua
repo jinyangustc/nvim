@@ -326,7 +326,7 @@ require('lazy').setup({
         {
           { '<leader>c', group = 'Code' },
           { '<leader>d', group = 'Document' },
-          { '<leader>r', group = 'Rename' },
+          { '<leader>r', group = 'Refactor/Slime' },
           { '<leader>s', group = 'Search' },
           { '<leader>w', group = 'Workspace' },
           { '<leader>t', group = 'Toggle' },
