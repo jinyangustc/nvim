@@ -953,6 +953,9 @@ require('lazy').setup({
 
       -- Go forward/backward with square brackets
       require('mini.bracketed').setup()
+
+      -- move things around
+      require('mini.move').setup()
     end,
   },
   { -- Highlight, edit, and navigate code
