@@ -703,9 +703,9 @@ require('lazy').setup({
         -- Conform can also run multiple formatters sequentially
         python = { 'ruff_fix', 'ruff_format' },
         toml = { 'taplo' },
-        markdown = { 'deno_fmt' },
-        javascript = { 'deno_fmt' },
-        json = { 'deno_fmt' },
+        markdown = { 'prettier', 'prettierd' },
+        javascript = { 'prettier', 'prettierd' },
+        json = { 'prettier', 'prettierd' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
