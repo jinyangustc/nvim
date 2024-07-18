@@ -90,6 +90,10 @@ if vim.g.neovide then
   vim.g.neovide_scroll_animation_length = 0
 end
 
+if vim.g.gui_vimr then
+  vim.o.guifont = 'Berkeley Mono:h20'
+end
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
