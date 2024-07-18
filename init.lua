@@ -706,6 +706,7 @@ require('lazy').setup({
         markdown = { 'prettier', 'prettierd' },
         javascript = { 'prettier', 'prettierd' },
         json = { 'prettier', 'prettierd' },
+        just = { 'just' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
