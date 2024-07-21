@@ -31,12 +31,18 @@ local function comment_str(_, parent, _)
   return env.LINE_COMMENT == '//' and env.BLOCK_COMMENT_START or env.LINE_COMMENT
 end
 
+local get_current_indent = function()
+  local line = vim.fn.line '.'
+  return vim.fn.indent(line)
+end
+
 local function comment_header(args, parent, _)
   local text = args[1][1]
   local c_str = comment_str(_, parent, _)
-  local total_length = 80 - #text - #c_str - 3
+  local indent = get_current_indent()
+  local total_length = 80 - indent - #text - #c_str - 3
   local dashes = string.rep('-', math.floor(total_length / 2))
-  return dashes -- .. '(' .. text .. ')'
+  return dashes
 end
 
 return {
