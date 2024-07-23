@@ -5,6 +5,14 @@
 --
 
 return {
+  -- {
+  --   'raphael-proust/vacme',
+  --   priority = 1000,
+  --   init = function()
+  --     vim.cmd.colorscheme 'vacme'
+  --     -- vim.cmd.hi 'Comment gui=none'
+  --   end,
+  -- },
   {
     'rose-pine/neovim',
     name = 'rose-pine',
