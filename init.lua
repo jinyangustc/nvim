@@ -229,6 +229,7 @@ vim.api.nvim_create_user_command('Bclose', function()
     vim.cmd 'bd'
   end
 end, {})
+vim.keymap.set('n', '<leader>bd', '<Cmd>:Bclose<CR>', { desc = 'Close buffer (keep split)' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -341,6 +342,7 @@ require('lazy').setup({
       require('which-key').add {
         {
           { '<leader>c', group = 'Code' },
+          { '<leader>b', group = 'Buffer' },
           { '<leader>d', group = 'Document' },
           { '<leader>r', group = 'Refactor/Slime' },
           { '<leader>f', group = 'Find' },
