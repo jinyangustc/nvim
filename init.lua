@@ -210,6 +210,26 @@ vim.keymap.set({ 'n', 'v' }, '<leader>Y', '"+yg_', { desc = 'Copy to end of the 
 vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p', { desc = 'Paste from system clipboard' })
 vim.keymap.set({ 'n', 'v' }, '<leader>P', '"+P', { desc = 'Paste from system clipboard before cursor' })
 
+vim.api.nvim_create_user_command('Bclose', function()
+  -- Get the number of listed buffers
+  local buf_count = #vim.fn.getbufinfo { buflisted = 1 }
+
+  if buf_count > 1 then
+    -- If there's more than one buffer, switch to the next one
+    vim.cmd 'bn'
+
+    -- Check if alternate file exists and is listed
+    local alt_file = vim.fn.expand '#'
+    if alt_file ~= '' and vim.fn.buflisted(vim.fn.bufnr '#') == 1 then
+      -- If it exists, delete it
+      vim.cmd 'bd #'
+    end
+  else
+    -- If there are no listed buffers, just create a new one
+    vim.cmd 'bd'
+  end
+end, {})
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
