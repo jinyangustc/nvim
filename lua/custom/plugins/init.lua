@@ -5,23 +5,19 @@
 --
 
 return {
+  {
+    'rktjmp/lush.nvim',
+    { dir = '/Users/jy/git/jcs.nvim', lazy = true },
+  },
   -- {
-  --   'raphael-proust/vacme',
+  --   'rose-pine/neovim',
+  --   name = 'rose-pine',
   --   priority = 1000,
   --   init = function()
-  --     vim.cmd.colorscheme 'vacme'
+  --     vim.cmd.colorscheme 'rose-pine-dawn'
   --     -- vim.cmd.hi 'Comment gui=none'
   --   end,
   -- },
-  {
-    'rose-pine/neovim',
-    name = 'rose-pine',
-    priority = 1000,
-    init = function()
-      vim.cmd.colorscheme 'rose-pine-dawn'
-      -- vim.cmd.hi 'Comment gui=none'
-    end,
-  },
   -- {
   --   'bluz71/vim-moonfly-colors',
   --   name = 'moonfly',
