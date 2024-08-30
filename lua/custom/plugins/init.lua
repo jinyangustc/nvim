@@ -7,7 +7,7 @@
 return {
   {
     'rktjmp/lush.nvim',
-    { dir = '/Users/jy/git/jcs.nvim', lazy = true },
+    { dir = '~/git/jcs.nvim', lazy = true },
   },
   -- {
   --   'rose-pine/neovim',
