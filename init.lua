@@ -954,6 +954,7 @@ require('lazy').setup({
   },
 })
 
+vim.opt.termguicolors = true
 vim.cmd.colorscheme 'jcs'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
