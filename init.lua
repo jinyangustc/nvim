@@ -375,6 +375,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Keymaps' })
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Files' })
       vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = 'Select Telescope' })
+      vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Help tags' })
       vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Current Word' })
       -- vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Grep' })
       vim.keymap.set('n', '<leader>fg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = 'Grep' })
