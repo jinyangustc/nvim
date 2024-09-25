@@ -14,6 +14,7 @@ end
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.opt.background = 'light'
+vim.opt.termguicolors = true
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
@@ -955,7 +956,6 @@ require('lazy').setup({
   },
 })
 
-vim.opt.termguicolors = true
 vim.cmd.colorscheme 'jcs'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
