@@ -335,9 +335,12 @@ require('lazy').setup({
         --  All the info you're looking for is in `:help telescope.setup()`
         --
         defaults = {
-          -- mappings = {
-          --   i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-          -- },
+          mappings = {
+            i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+            n = {
+              ['<c-d>'] = require('telescope.actions').delete_buffer,
+            },
+          },
           layout_strategy = 'vertical',
         },
         -- pickers = {}
