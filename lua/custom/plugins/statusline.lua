@@ -93,13 +93,13 @@ return {
       local diagnostics = MiniStatusline.section_diagnostics { trunc_width = 75 }
       local filename = MiniStatusline.section_filename { trunc_width = 140 }
       local location = MiniStatusline.section_location { trunc_width = 75 }
-      local search = MiniStatusline.section_searchcount { trunc_width = 75 }
+      -- local search = MiniStatusline.section_searchcount { trunc_width = 75 }
 
       return statusline.combine_groups {
         { hl = '', strings = { filename } },
         '%<', -- Mark general truncate point
         { hl = '', strings = { git } },
-        { hl = '', strings = { search } },
+        -- { hl = '', strings = { search } },
         '%=', -- End left alignment
         { hl = '', strings = { diagnostics } },
         { hl = '', strings = { location } },
