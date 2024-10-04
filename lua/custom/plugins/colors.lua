@@ -5,6 +5,7 @@ return {
       'css',
       'javascript',
       'lua',
+      'tmux',
       html = {
         mode = 'background',
       },
