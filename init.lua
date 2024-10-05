@@ -389,13 +389,18 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Files' })
       vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = 'Select Telescope' })
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Help tags' })
+      vim.keymap.set('n', '<leader>fl', builtin.loclist, { desc = "Lists items from the current window's location list" })
+      vim.keymap.set('n', '<leader>fj', builtin.jumplist, { desc = 'Lists Jump List entries' })
       vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Current Word' })
-      -- vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Grep' })
       vim.keymap.set('n', '<leader>fg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = 'Grep' })
       vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Diagnostics' })
-      vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Resume' })
-      vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = 'Recent Files ("." for repeat)' })
+      vim.keymap.set('n', '<leader>fc', builtin.resume, { desc = 'Continue (Resume)' })
+      vim.keymap.set('n', '<leader>fr', builtin.registers, { desc = 'Lists vim registers, pastes the contents of the register on <cr>' })
+      vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Lists previously open files' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Find existing buffers' })
+
+      vim.keymap.set('n', '<leader>cs', builtin.lsp_document_symbols, { desc = 'Lists document symbols' })
+      vim.keymap.set('n', '<leader>cS', builtin.lsp_workspace_symbols, { desc = 'Lists workspace symbols' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
