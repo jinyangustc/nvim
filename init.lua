@@ -15,6 +15,8 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.opt.background = 'light'
 vim.opt.termguicolors = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
