@@ -731,6 +731,8 @@ require('lazy').setup({
     },
   },
 
+  { 'petertriho/cmp-git', dependencies = { 'hrsh7th/nvim-cmp' }, opts = {} },
+
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
@@ -766,6 +768,7 @@ require('lazy').setup({
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-buffer',
     },
     config = function()
       -- See `:help cmp`
@@ -842,6 +845,8 @@ require('lazy').setup({
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'buffer' },
+          { name = 'git' },
         },
       }
     end,
