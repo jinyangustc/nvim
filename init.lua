@@ -94,10 +94,8 @@ vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic Error messages' })
+vim.keymap.set('n', '<leader>ce', vim.diagnostic.open_float, { desc = 'Show diagnostic Error messages' })
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic Quickfix list' })
-vim.keymap.set('n', '<leader>xl', '<cmd>lopen<cr>', { desc = 'Location List' })
-vim.keymap.set('n', '<leader>xq', '<cmd>copen<cr>', { desc = 'Quickfix List' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -262,15 +260,15 @@ require('lazy').setup({
       require('which-key').add {
         {
           { '<leader>c', group = 'Code' },
+          { '<leader>e', group = 'Edit/Explore' },
           { '<leader>b', group = 'Buffer' },
           { '<leader>d', group = 'Document' },
-          { '<leader>r', group = 'Refactor/Slime' },
+          { '<leader>r', group = 'Slime' },
           { '<leader>f', group = 'Find' },
           { '<leader>w', group = 'Workspace' },
           { '<leader>t', group = 'Toggle' },
           { '<leader>g', group = 'Git' },
           { '<leader>h', group = 'Git Hunk', mode = { 'n', 'v' } },
-          { '<leader>x', group = 'diagnostics/quickfix' },
         },
       }
     end,
@@ -896,6 +894,34 @@ require('lazy').setup({
 
       -- move things around
       require('mini.move').setup()
+
+      -- file explorer
+      vim.keymap.set('n', '-', '<cmd>Explore<cr>', { desc = 'Open directory in netrw' })
+      vim.keymap.set('n', '<leader>ec', '<cmd>lua MiniFiles.open(vim.fn.stdpath("config"))<cr>', { desc = 'Open nvim config dir' })
+      vim.keymap.set('n', '<leader>ed', '<cmd>lua MiniFiles.open()<cr>', { desc = 'Open directory in mini.files' })
+      vim.keymap.set('n', '<leader>el', '<cmd>lopen<cr>', { desc = 'Open location List' })
+      vim.keymap.set('n', '<leader>eq', '<cmd>copen<cr>', { desc = 'Open quickfix List' })
+      require('mini.files').setup {
+        options = {
+          permanent_delete = false,
+          use_as_default_explorer = false,
+        },
+        mappings = {
+          close = 'q',
+          go_in = 'l',
+          go_in_plus = '<cr>',
+          go_out = 'h',
+          go_out_plus = 'H',
+          mark_goto = "'",
+          mark_set = 'm',
+          reset = '<BS>',
+          reveal_cwd = '@',
+          show_help = 'g?',
+          synchronize = '=',
+          trim_left = '<',
+          trim_right = '>',
+        },
+      }
     end,
   },
   { -- Highlight, edit, and navigate code
