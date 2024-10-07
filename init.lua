@@ -263,7 +263,7 @@ require('lazy').setup({
           { '<leader>e', group = 'Edit/Explore' },
           { '<leader>b', group = 'Buffer' },
           { '<leader>d', group = 'Document' },
-          { '<leader>r', group = 'Slime' },
+          { '<leader>r', group = 'Slime/Test' },
           { '<leader>f', group = 'Find' },
           { '<leader>w', group = 'Workspace' },
           { '<leader>t', group = 'Toggle' },
