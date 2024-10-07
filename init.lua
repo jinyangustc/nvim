@@ -927,6 +927,14 @@ require('lazy').setup({
           trim_right = '>',
         },
       }
+
+      -- colors
+      local hipatterns = require 'mini.hipatterns'
+      hipatterns.setup {
+        highlighters = {
+          hex_colors = hipatterns.gen_highlighter.hex_color(),
+        },
+      }
     end,
   },
   { -- Highlight, edit, and navigate code
