@@ -903,7 +903,7 @@ require('lazy').setup({
       -- file explorer
       vim.keymap.set('n', '-', '<cmd>Explore<cr>', { desc = 'Open directory in netrw' })
       vim.keymap.set('n', '<leader>ec', '<cmd>lua MiniFiles.open(vim.fn.stdpath("config"))<cr>', { desc = 'Open nvim config dir' })
-      vim.keymap.set('n', '<leader>ed', '<cmd>lua MiniFiles.open()<cr>', { desc = 'Open directory in mini.files' })
+      vim.keymap.set('n', '<leader>ed', '<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<cr>', { desc = 'Open directory in mini.files' })
       vim.keymap.set('n', '<leader>el', '<cmd>lopen<cr>', { desc = 'Open location List' })
       vim.keymap.set('n', '<leader>eq', '<cmd>copen<cr>', { desc = 'Open quickfix List' })
       require('mini.files').setup {
