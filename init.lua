@@ -718,9 +718,9 @@ require('lazy').setup({
         bash = { 'shellharden' },
         sh = { 'shellharden' },
         fish = { 'fish_indent' },
-        json = { 'prettier', 'prettierd' },
+        json = { 'prettierd', 'prettier' },
         just = { 'just' },
-        markdown = { 'prettier', 'prettierd' },
+        markdown = { 'prettierd', 'prettier' },
         python = { 'ruff_fix', 'ruff_format' },
         toml = { 'taplo' },
         --
