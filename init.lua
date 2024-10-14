@@ -95,6 +95,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>ce', vim.diagnostic.open_float, { desc = 'Show diagnostic Error messages' })
+vim.keymap.set('n', '<leader>cl', vim.diagnostic.setloclist, { desc = 'Open diagnostic Quickfix list' })
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic Quickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
@@ -396,9 +397,6 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>fr', builtin.registers, { desc = 'Lists vim registers, pastes the contents of the register on <cr>' })
       vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Lists previously open files' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Find existing buffers' })
-
-      vim.keymap.set('n', '<leader>cs', builtin.lsp_document_symbols, { desc = 'Lists document symbols' })
-      vim.keymap.set('n', '<leader>cS', builtin.lsp_workspace_symbols, { desc = 'Lists workspace symbols' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
