@@ -720,7 +720,7 @@ require('lazy').setup({
         fish = { 'fish_indent' },
         json = { 'prettierd', 'prettier' },
         just = { 'just' },
-        markdown = { 'prettierd', 'prettier' },
+        markdown = { 'mdformat' },
         python = { 'ruff_fix', 'ruff_format' },
         toml = { 'taplo' },
         --
