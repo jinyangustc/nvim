@@ -626,6 +626,9 @@ require('lazy').setup({
         },
         ruff_lsp = { settings = { args = {} } },
 
+        -- formatter
+        dprint = { filetypes = { 'json', 'markdown', 'toml', 'javascript' } },
+
         marksman = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -713,14 +716,10 @@ require('lazy').setup({
       formatters_by_ft = {
         bash = { 'shellharden' },
         fish = { 'fish_indent' },
-        javascript = { 'dprint' },
-        json = { 'dprint' },
         just = { 'just' },
         lua = { 'stylua' },
-        markdown = { 'dprint' },
         python = { 'ruff_fix', 'ruff_format' },
         sh = { 'shellharden' },
-        toml = { 'taplo' },
       },
     },
   },
