@@ -507,6 +507,8 @@ require('lazy').setup({
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
+          -- Crtl-W ] will open up the definition in a new split and place your cursor onto the new split.
+          -- Ctrl-W } will open up the definition in a new split but keep your cursor where it is currently.
           map('gd', require('telescope.builtin').lsp_definitions, 'Goto Definition')
 
           -- Find references for the word under your cursor.
