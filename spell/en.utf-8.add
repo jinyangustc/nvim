@@ -92,3 +92,9 @@ SenSys
 pretrained
 dataset
 int32
+hyperparameters
+STFT
+spectrogram
+datasets
+dataloders
+logits
