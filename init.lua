@@ -629,7 +629,7 @@ require('lazy').setup({
         ruff_lsp = { settings = { args = {} } },
 
         -- formatter
-        dprint = { filetypes = { 'json', 'markdown', 'toml', 'javascript' } },
+        -- dprint = { filetypes = { 'json', 'markdown', 'toml', 'javascript' } },
 
         marksman = {},
         -- rust_analyzer = {},
@@ -671,6 +671,9 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'dprint',
+        'ruff',
+        'shellharden',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -722,6 +725,8 @@ require('lazy').setup({
         lua = { 'stylua' },
         python = { 'ruff_fix', 'ruff_format' },
         sh = { 'shellharden' },
+        markdown = { 'dprint' },
+        toml = { 'dprint' },
       },
     },
   },
