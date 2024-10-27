@@ -27,7 +27,7 @@ vim.g.have_nerd_font = false
 --  For more options, you can see `:help option-list`
 
 -- Make line numbers default
-vim.opt.number = true
+vim.opt.number = false
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
 -- vim.opt.relativenumber = true
@@ -173,7 +173,7 @@ if not vim.uv.fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     error('Error cloning lazy.nvim:\n' .. out)
   end
-  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
   if vim.v.shell_error ~= 0 then
     error('Error cloning lazy.nvim:\n' .. out)
   end
@@ -648,11 +648,22 @@ require('lazy').setup({
           -- capabilities = {},
           settings = {
             Lua = {
+              -- See: https://www.reddit.com/r/neovim/comments/pla7bv/since_everyone_is_getting_more_familiar_with_lua/
               completion = {
                 callSnippet = 'Replace',
               },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
+              diagnostics = {
+                -- disable = { 'missing-fields' }
+                globals = { 'hs', 'vim' },
+              },
+              workspace = {
+                library = {
+                  [vim.fn.expand '$VIMRUNTIME/lua'] = true,
+                  [vim.fn.expand '$VIMRUNTIME/lua/vim/lsp'] = true,
+                  ['/Applications/Hammerspoon.app/Contents/Resources/extensions/hs/'] = true,
+                },
+              },
             },
           },
         },
