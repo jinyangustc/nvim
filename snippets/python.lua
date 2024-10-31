@@ -27,5 +27,6 @@ local ms = ls.multi_snippet
 local k = require('luasnip.nodes.key_indexer').new_key
 
 return {
-  s('bp', t { 'breakpoint()', '' }),
+  s('bp', t { 'breakpoint()' }),
+  s('ifmain', t { 'if __name__ =="__main__":' }),
 }
