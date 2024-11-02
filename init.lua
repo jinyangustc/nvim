@@ -924,8 +924,8 @@ require('lazy').setup({
         },
         mappings = {
           close = 'q',
-          go_in = 'l',
-          go_in_plus = '<cr>',
+          go_in = '<cr>',
+          go_in_plus = '',
           go_out = 'h',
           go_out_plus = 'H',
           mark_goto = "'",
