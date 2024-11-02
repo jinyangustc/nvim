@@ -100,12 +100,12 @@ statusline.active = function()
   return statusline.combine_groups {
     { hl = '', strings = { filename } },
     '%<', -- Mark general truncate point
-    { hl = '', strings = { git } },
-    { hl = '', strings = { fileinfo } },
+    { hl = '', strings = { location } },
+    -- { hl = '', strings = { git } },
+    -- { hl = '', strings = { fileinfo } },
     -- { hl = '', strings = { search } },
     '%=', -- End left alignment
     { hl = '', strings = { diagnostics } },
-    { hl = '', strings = { location } },
   }
 end
 
