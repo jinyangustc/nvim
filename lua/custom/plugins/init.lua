@@ -18,6 +18,7 @@ return {
     --   -- vim.cmd.hi 'Comment gui=none'
     -- end,
   },
+  { 'ellisonleao/gruvbox.nvim', opts = { contrast = 'soft' } },
   -- {
   --   'bluz71/vim-moonfly-colors',
   --   name = 'moonfly',
