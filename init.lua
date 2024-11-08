@@ -129,7 +129,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p', { desc = 'Paste from system cli
 vim.keymap.set({ 'n', 'v' }, '<leader>P', '"+P', { desc = 'Paste from system clipboard before cursor' })
 
 -- Close buffer but keep the split if possible.
-vim.api.nvim_create_user_command('Bclose', function()
+vim.api.nvim_create_user_command('Bdelete', function()
   -- Get the number of listed buffers
   local buf_count = #vim.fn.getbufinfo { buflisted = 1 }
 
@@ -148,7 +148,7 @@ vim.api.nvim_create_user_command('Bclose', function()
     vim.cmd 'bd'
   end
 end, {})
-vim.keymap.set('n', '<leader>bd', '<Cmd>:Bclose<CR>', { desc = 'Close buffer (keep split)' })
+vim.keymap.set('n', '<leader>bd', '<Cmd>:Bdelete<CR>', { desc = 'Delete buffer but keep the split' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
