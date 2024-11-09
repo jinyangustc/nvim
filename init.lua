@@ -1,11 +1,11 @@
 if vim.g.neovide then
-  vim.o.guifont = 'Berkeley Mono:h18'
+  vim.o.guifont = 'Berkeley Mono:h14'
   vim.g.neovide_cursor_animation_length = 0
   vim.g.neovide_scroll_animation_length = 0
 end
 
 if vim.g.gui_vimr then
-  vim.o.guifont = 'Berkeley Mono:h20'
+  vim.o.guifont = 'Berkeley Mono:h14'
 end
 
 -- Set <space> as the leader key
