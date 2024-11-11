@@ -15,6 +15,8 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.opt.background = 'dark'
 vim.opt.termguicolors = true
+
+vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 
@@ -685,6 +687,7 @@ require('lazy').setup({
         'dprint',
         'ruff',
         'shellharden',
+        'latexindent',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -738,6 +741,12 @@ require('lazy').setup({
         sh = { 'shellharden' },
         markdown = { 'dprint' },
         toml = { 'dprint' },
+        tex = { 'latexindent' },
+      },
+      formatters = {
+        latexindent = {
+          prepend_args = { '-l', '.latexindent.yaml' },
+        },
       },
     },
   },
@@ -780,6 +789,7 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-buffer',
+      'micangl/cmp-vimtex',
     },
     config = function()
       -- See `:help cmp`
@@ -858,6 +868,7 @@ require('lazy').setup({
           { name = 'path' },
           { name = 'buffer' },
           { name = 'git' },
+          { name = 'vimtex' },
         },
       }
     end,
