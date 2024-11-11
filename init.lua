@@ -628,7 +628,7 @@ require('lazy').setup({
             },
           },
         },
-        ruff_lsp = { settings = { args = {} } },
+        ruff = { settings = { args = {} } },
 
         -- formatter
         -- dprint = { filetypes = { 'json', 'markdown', 'toml', 'javascript' } },
