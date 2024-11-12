@@ -34,7 +34,7 @@ return {
       \begin{equation}
       <>
       \end{equation}]],
-      { i(0) },
+      { i(1) },
       { delimiters = '<>' }
     )
   ),
@@ -45,7 +45,7 @@ return {
       \begin{equation*}
       <>
       \end{equation*}]],
-      { i(0) },
+      { i(1) },
       { delimiters = '<>' }
     )
   ),
@@ -56,16 +56,16 @@ return {
     \begin{<>}
     <>
     \end{<>}]],
-      { i(1), i(0), rep(1) }, -- repeat node 1
+      { i(1), i(2), rep(1) }, -- repeat node 1
       { delimiters = '<>' }
     )
   ),
-  s('ll', fmt([[\label{<>}<>]], { i(1), i(0) }, { delimiters = '<>' })),
-  s('ll', fmt([[\label{<>}<>]], { i(1), i(0) }, { delimiters = '<>' })),
-  s('ref', fmt([[\cref{<>}<>]], { i(1), i(0) }, { delimiters = '<>' })),
-  s('Ref', fmt([[\Cref{<>}<>]], { i(1), i(0) }, { delimiters = '<>' })),
-  s('bf', fmt([[\textbf{<>}<>]], { i(1), i(0) }, { delimiters = '<>' })),
-  s('it', fmt([[\textit{<>}<>]], { i(1), i(0) }, { delimiters = '<>' })),
-  s('em', fmt([[\emph{<>}<>]], { i(1), i(0) }, { delimiters = '<>' })),
-  s('$', fmt([[\(<>\)<>]], { i(1), i(0) }, { delimiters = '<>' })),
+  s('ll', fmt([[\label{<>}]], { i(1) }, { delimiters = '<>' })),
+  s('ll', fmt([[\label{<>}]], { i(1) }, { delimiters = '<>' })),
+  s('ref', fmt([[\cref{<>}]], { i(1) }, { delimiters = '<>' })),
+  s('Ref', fmt([[\Cref{<>}]], { i(1) }, { delimiters = '<>' })),
+  s('bf', fmt([[\textbf{<>}]], { i(1) }, { delimiters = '<>' })),
+  s('it', fmt([[\textit{<>}]], { i(1) }, { delimiters = '<>' })),
+  s('em', fmt([[\emph{<>}]], { i(1) }, { delimiters = '<>' })),
+  s('$', fmt([[\(<>\)]], { i(1) }, { delimiters = '<>' })),
 }
