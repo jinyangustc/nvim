@@ -33,7 +33,8 @@ return {
       [[
       \begin{equation}
       <>
-      \end{equation}]],
+      \end{equation}
+      ]],
       { i(1) },
       { delimiters = '<>' }
     )
@@ -44,7 +45,8 @@ return {
       [[
       \begin{equation*}
       <>
-      \end{equation*}]],
+      \end{equation*}
+      ]],
       { i(1) },
       { delimiters = '<>' }
     )
@@ -55,7 +57,8 @@ return {
       [[
     \begin{<>}
     <>
-    \end{<>}]],
+    \end{<>}
+    ]],
       { i(1), i(2), rep(1) }, -- repeat node 1
       { delimiters = '<>' }
     )
