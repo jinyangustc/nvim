@@ -46,7 +46,7 @@ local function comment_header(args, parent, _)
 end
 
 return {
-  s('comment_divider', {
+  s('---', {
     f(function(_, parent, _)
       return comment_str(_, parent, _) .. ' '
     end),

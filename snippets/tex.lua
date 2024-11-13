@@ -71,4 +71,6 @@ return {
   s('it', fmt([[\textit{<>}]], { i(1) }, { delimiters = '<>' })),
   s('em', fmt([[\emph{<>}]], { i(1) }, { delimiters = '<>' })),
   s('$', fmt([[\(<>\)]], { i(1) }, { delimiters = '<>' })),
+  s('^', fmt([[^{<>}]], { i(1) }, { delimiters = '<>' })),
+  s('_', fmt([[_{<>}]], { i(1) }, { delimiters = '<>' })),
 }
