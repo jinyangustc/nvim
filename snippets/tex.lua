@@ -31,8 +31,7 @@ return {
     'equ',
     fmt(
       [[
-      \begin{equation}
-      <>
+      \begin{equation}<>
       \end{equation}
       ]],
       { i(1) },
@@ -43,8 +42,7 @@ return {
     'equ*',
     fmt(
       [[
-      \begin{equation*}
-      <>
+      \begin{equation*}<>
       \end{equation*}
       ]],
       { i(1) },
@@ -55,8 +53,7 @@ return {
     'beg',
     fmt(
       [[
-    \begin{<>}
-    <>
+    \begin{<>}<>
     \end{<>}
     ]],
       { i(1), i(2), rep(1) }, -- repeat node 1
