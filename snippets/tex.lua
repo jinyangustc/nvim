@@ -50,6 +50,30 @@ return {
     )
   ),
   s(
+    'item',
+    fmt(
+      [[
+      \begin{itemize}
+        \item <>
+      \end{itemize}
+      ]],
+      { i(1) },
+      { delimiters = '<>' }
+    )
+  ),
+  s(
+    'frame',
+    fmt(
+      [[
+      \begin{frame}{<>}
+        <>
+      \end{frame}
+      ]],
+      { i(1), i(2) },
+      { delimiters = '<>' }
+    )
+  ),
+  s(
     'beg',
     fmt(
       [[
@@ -61,11 +85,13 @@ return {
     )
   ),
   s('ll', fmt([[\label{<>}]], { i(1) }, { delimiters = '<>' })),
-  s('ll', fmt([[\label{<>}]], { i(1) }, { delimiters = '<>' })),
   s('ref', fmt([[\cref{<>}]], { i(1) }, { delimiters = '<>' })),
   s('Ref', fmt([[\Cref{<>}]], { i(1) }, { delimiters = '<>' })),
   s('bf', fmt([[\textbf{<>}]], { i(1) }, { delimiters = '<>' })),
+  s('vv', fmt([[\mathbf{<>}]], { i(1) }, { delimiters = '<>' })),
+  s('cal', fmt([[\mathcal{<>}]], { i(1) }, { delimiters = '<>' })),
   s('it', fmt([[\textit{<>}]], { i(1) }, { delimiters = '<>' })),
+  s('ii', fmt([[\item <>]], { i(1) }, { delimiters = '<>' })),
   s('em', fmt([[\emph{<>}]], { i(1) }, { delimiters = '<>' })),
   s('$', fmt([[\(<>\)]], { i(1) }, { delimiters = '<>' })),
   s('^', fmt([[^{<>}]], { i(1) }, { delimiters = '<>' })),
