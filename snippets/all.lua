@@ -27,8 +27,7 @@ local ms = ls.multi_snippet
 local k = require('luasnip.nodes.key_indexer').new_key
 
 local function comment_str(_, parent, _)
-  local env = parent.snippet.env
-  return env.LINE_COMMENT == '//' and env.BLOCK_COMMENT_START or env.LINE_COMMENT
+  return require('luasnip.util.util').buffer_comment_chars()[1]
 end
 
 local get_current_indent = function()
