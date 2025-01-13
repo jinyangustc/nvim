@@ -567,7 +567,7 @@ require('lazy').setup({
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
-          map('<leader>ca', vim.lsp.buf.code_action, 'Code Action', {'n', 'x' })
+          map('<leader>ca', vim.lsp.buf.code_action, 'Code Action', { 'n', 'x' })
 
           -- show signature
           map('<leader>k', vim.lsp.buf.signature_help, 'Show signature')
@@ -668,9 +668,6 @@ require('lazy').setup({
         },
         ruff = { settings = { args = {} } },
 
-        -- formatter
-        -- dprint = { filetypes = { 'json', 'markdown', 'toml', 'javascript' } },
-
         marksman = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -724,11 +721,13 @@ require('lazy').setup({
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
-        'dprint',
+        'latexindent',
+        'prettier',
+        'prettierd',
         'ruff',
         'shellharden',
-        'latexindent',
+        'stylua',
+        'taplo',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -787,8 +786,8 @@ require('lazy').setup({
         -- Conform can also run multiple formatters sequentially
         python = { 'ruff_fix', 'ruff_format' },
         sh = { 'shellharden' },
-        markdown = { 'dprint' },
-        toml = { 'dprint' },
+        markdown = { 'prettierd', 'prettier', stop_after_first = true },
+        -- toml = { 'prettierd', 'prettier', stop_after_first = true },
         tex = { 'latexindent' },
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
