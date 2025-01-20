@@ -88,7 +88,12 @@ vim.opt.scrolloff = 10
 
 -- spell checking
 vim.opt.spelllang = 'en_us'
-vim.opt.spell = true
+vim.opt.spell = false
+
+-- toggle spell checking with <leader>s
+vim.keymap.set('n', '<leader>ss', function()
+  vim.opt.spell = not vim.opt.spell:get()
+end, { desc = 'Toggle spell checking' })
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
