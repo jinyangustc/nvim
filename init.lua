@@ -104,7 +104,11 @@ vim.opt.spell = false
 -- Automatically enable spell checking for git commit messages
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'gitcommit',
-  callback = function() vim.opt_local.spell = true end,
+  callback = function()
+    vim.opt_local.spell = true
+    -- Show vertical rulers at the 50 (subject) and 72 (body) character marks
+    vim.opt_local.colorcolumn = '50,72'
+  end,
 })
 
 -- toggle spell checking with <leader>s
