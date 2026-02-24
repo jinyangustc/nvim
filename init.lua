@@ -93,8 +93,19 @@ vim.o.scrolloff = 10
 vim.o.confirm = true
 
 -- spell checking
+--
+--   ]s: jump to the next misspelled word
+--   [s: jump to the previous misspelled word
+--   z=: show a list of spelling suggestions
+--   zg: add the word under the cursor to the dictionary
+--   zw: mark the word under the cursor as misspelled
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = false
+-- Automatically enable spell checking for git commit messages
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'gitcommit',
+  callback = function() vim.opt_local.spell = true end,
+})
 
 -- toggle spell checking with <leader>s
 vim.keymap.set('n', '<leader>tc', function() vim.opt.spell = not vim.opt.spell:get() end, { desc = '[T]oggle Spell [C]hecking' })
