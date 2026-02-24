@@ -33,21 +33,15 @@ statusline.setup { use_icons = vim.g.have_nerd_font }
 -- default behavior. For example, here we set the section for
 -- cursor location to LINE:COLUMN
 ---@diagnostic disable-next-line: duplicate-set-field
-statusline.section_location = function()
-  return '%2l:%-2v %P'
-end
+statusline.section_location = function() return '%2l:%-2v %P' end
 
 -- shorten git section: remove trailing "Git: "
 ---@diagnostic disable-next-line: duplicate-set-field
 statusline.section_git = function(args)
-  if statusline.is_truncated(args.trunc_width) then
-    return ''
-  end
+  if statusline.is_truncated(args.trunc_width) then return '' end
 
   local summary = vim.b.minigit_summary_string or vim.b.gitsigns_head
-  if summary == nil then
-    return ''
-  end
+  if summary == nil then return '' end
 
   return (summary == '' and '-' or '[' .. summary .. ']')
 end
@@ -74,9 +68,7 @@ statusline.section_mode = function()
     ['t'] = { long = 'Terminal', short = 'T', hl = 'MiniStatuslineModeOther' },
   }, {
     -- By default return 'Unknown' but this shouldn't be needed
-    __index = function()
-      return { long = 'Unknown', short = 'U', hl = '%#MiniStatuslineModeOther#' }
-    end,
+    __index = function() return { long = 'Unknown', short = 'U', hl = '%#MiniStatuslineModeOther#' } end,
   })
   local mode_info = H.modes[vim.fn.mode()]
   local mode = mode_info.short
@@ -86,10 +78,10 @@ end
 -- set statusline sections
 ---@diagnostic disable-next-line: duplicate-set-field
 statusline.active = function()
-  -- local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 120 }
+  local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 120 }
   -- local diff = MiniStatusline.section_diff { trunc_width = 75 }
   -- local lsp = MiniStatusline.section_lsp { trunc_width = 75 }
-  local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 120 }
+  -- local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 120 }
 
   local git = MiniStatusline.section_git { trunc_width = 40 }
   local diagnostics = MiniStatusline.section_diagnostics { trunc_width = 75 }
@@ -98,14 +90,17 @@ statusline.active = function()
   -- local search = MiniStatusline.section_searchcount { trunc_width = 75 }
 
   return statusline.combine_groups {
+    { hl = mode_hl, strings = { mode } },
     { hl = '', strings = { filename } },
     '%<', -- Mark general truncate point
     { hl = '', strings = { location } },
-    -- { hl = '', strings = { git } },
-    -- { hl = '', strings = { fileinfo } },
+    -- { hl = '', strings = { diff } },
+    -- { hl = '', strings = { lsp } },
     -- { hl = '', strings = { search } },
-    '%=', -- End left alignment
     { hl = '', strings = { diagnostics } },
+    '%=', -- End left alignment
+    -- { hl = '', strings = { fileinfo } },
+    { hl = '', strings = { git } },
   }
 end
 
