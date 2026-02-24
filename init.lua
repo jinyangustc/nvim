@@ -636,20 +636,22 @@ require('lazy').setup({
         -- gopls = {},
 
         -- Python
-        pyright = {
+        basedpyright = {
           settings = {
-            pyright = {
+            basedpyright = {
               -- Using Ruff's import organizer
               disableOrganizeImports = true,
               disableTaggedHints = true,
             },
             python = {
-              analysis = {
-                diagnosticSeverityOverrides = {
-                  -- https://github.com/microsoft/pyright/blob/main/docs/configuration.md#type-check-diagnostics-settings
-                  reportUndefinedVariable = 'none',
-                },
-              },
+              pythonPath = '.venv/bin/python',
+              venvPath = '.venv',
+              -- analysis = {
+              --   diagnosticSeverityOverrides = {
+              --     -- https://github.com/microsoft/pyright/blob/main/docs/configuration.md#type-check-diagnostics-settings
+              --     reportUndefinedVariable = 'none',
+              --   },
+              -- },
             },
           },
         },
@@ -783,7 +785,7 @@ require('lazy').setup({
         just = { 'just' },
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        python = { 'ruff_fix', 'ruff_format' },
+        python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
         sh = { 'shellharden' },
         markdown = { 'prettierd', 'prettier', stop_after_first = true },
         -- toml = { 'prettierd', 'prettier', stop_after_first = true },
