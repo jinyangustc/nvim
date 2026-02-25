@@ -19,4 +19,5 @@ return {
     -- end,
   },
   { 'ellisonleao/gruvbox.nvim', opts = { contrast = 'soft' } },
+  { 'savq/melange-nvim' },
 }
