@@ -36,6 +36,23 @@ return {
         mode = 'n',
         desc = 'gr[u]g-far: Search current [w]ord',
       },
+      {
+        '<leader>uv',
+        function()
+          local search = vim.fn.getreg '/'
+
+          -- surround with \b if "word" search (such as when pressing `*`)
+          if search and vim.startswith(search, '\\<') and vim.endswith(search, '\\>') then search = '\\b' .. search:sub(3, -3) .. '\\b' end
+
+          require('grug-far').open {
+            prefills = {
+              search = search,
+            },
+          }
+        end,
+        mode = { 'n', 'x' },
+        desc = 'gr[u]g-far: Search using @/ register value or [v]isual selection',
+      },
     },
 
     config = function()
