@@ -294,6 +294,7 @@ require('lazy').setup({
         { '<leader>g', group = '[G]it' },
 
         { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
+        { '<leader>u', group = 'gr[u]g-far', mode = { 'n', 'v' } },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       },
@@ -967,6 +968,32 @@ require('lazy').setup({
           trim_right = '>',
         },
       }
+      local MiniFiles = require 'mini.files'
+      local files_grug_far_replace = function()
+        -- works only if cursor is on the valid file system entry
+        local entry = MiniFiles.get_fs_entry()
+        if not entry or not entry.path then return end
+
+        local prefills = { paths = vim.fs.dirname(entry.path) }
+        local grug_far = require 'grug-far'
+
+        if not grug_far.has_instance 'explorer' then
+          grug_far.open {
+            instanceName = 'explorer',
+            prefills = prefills,
+            staticTitle = 'Find and Replace from Explorer',
+          }
+        else
+          local inst = grug_far.get_instance 'explorer'
+          inst:open()
+          -- update prefills without clearing other fields
+          inst:update_input_values(prefills, false)
+        end
+      end
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'MiniFilesBufferCreate',
+        callback = function(args) vim.keymap.set('n', 'gs', files_grug_far_replace, { buffer = args.data.buf_id, desc = 'Search in directory' }) end,
+      })
 
       -- colors
       local hipatterns = require 'mini.hipatterns'
