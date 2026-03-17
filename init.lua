@@ -175,6 +175,8 @@ vim.keymap.set({ 'n', 'v' }, '<leader>Y', '"+yg_', { desc = 'Copy to end of the 
 vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p', { desc = 'Paste from system clipboard' })
 vim.keymap.set({ 'n', 'v' }, '<leader>P', '"+P', { desc = 'Paste from system clipboard before cursor' })
 
+vim.keymap.set('n', '<leader>d', function() vim.diagnostic.open_float(nil, { scope = 'cursor' }) end, { desc = 'Show diagnostic message under cursor' })
+
 -- Close buffer but keep the split if possible.
 vim.api.nvim_create_user_command('Bdelete', function()
   -- Get the number of listed buffers
