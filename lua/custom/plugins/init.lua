@@ -5,10 +5,10 @@
 ---@module 'lazy'
 ---@type LazySpec
 return {
-  {
-    'rktjmp/lush.nvim',
-    { dir = '~/git/jcs.nvim', lazy = true },
-  },
+  -- {
+  --   'rktjmp/lush.nvim',
+  --   { dir = '~/git/jcs.nvim', lazy = true },
+  -- },
   {
     'rose-pine/neovim',
     name = 'rose-pine',
