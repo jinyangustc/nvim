@@ -636,6 +636,8 @@ require('lazy').setup({
         end,
       })
 
+      local lsp_util = require 'lspconfig.util'
+
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --  See `:help lsp-config` for information about keys and how to configure
@@ -646,6 +648,7 @@ require('lazy').setup({
 
         -- Python
         basedpyright = {
+          root_markers = { 'uv.lock', '.git' },
           settings = {
             basedpyright = {
               -- Using Ruff's import organizer
@@ -654,7 +657,7 @@ require('lazy').setup({
             },
             python = {
               pythonPath = '.venv/bin/python',
-              venvPath = '.venv',
+              -- venvPath = '.venv',
               -- analysis = {
               --   diagnosticSeverityOverrides = {
               --     -- https://github.com/microsoft/pyright/blob/main/docs/configuration.md#type-check-diagnostics-settings
@@ -664,7 +667,10 @@ require('lazy').setup({
             },
           },
         },
-        ruff = { settings = { args = {} } },
+        ruff = {
+          root_markers = { 'uv.lock', '.git' },
+          settings = { args = {} },
+        },
 
         marksman = {},
         -- rust_analyzer = {},
