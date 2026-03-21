@@ -92,6 +92,7 @@ statusline.active = function()
   return statusline.combine_groups {
     { hl = mode_hl, strings = { mode } },
     { hl = '', strings = { filename } },
+    { hl = '', strings = { '#%n' } },
     '%<', -- Mark general truncate point
     { hl = '', strings = { location } },
     -- { hl = '', strings = { diff } },
