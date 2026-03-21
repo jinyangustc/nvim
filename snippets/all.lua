@@ -26,9 +26,7 @@ local parse = require('luasnip.util.parser').parse_snippet
 local ms = ls.multi_snippet
 local k = require('luasnip.nodes.key_indexer').new_key
 
-local function comment_str(_, parent, _)
-  return require('luasnip.util.util').buffer_comment_chars()[1]
-end
+local function comment_str(_, parent, _) return require('luasnip.util.util').buffer_comment_chars()[1] end
 
 local get_current_indent = function()
   local line = vim.fn.line '.'
@@ -45,10 +43,8 @@ local function comment_header(args, parent, _)
 end
 
 return {
-  s('---', {
-    f(function(_, parent, _)
-      return comment_str(_, parent, _) .. ' '
-    end),
+  s('hdr', {
+    f(function(_, parent, _) return comment_str(_, parent, _) .. ' ' end),
     f(comment_header, { 1 }),
     t ' ',
     i(1, 'header'),
