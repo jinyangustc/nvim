@@ -728,7 +728,7 @@ require('lazy').setup({
         'prettier',
         'prettierd',
         'ruff',
-        'shellharden',
+        'shfmt',
         'stylua',
         'taplo',
       })
@@ -774,13 +774,13 @@ require('lazy').setup({
         end
       end,
       formatters_by_ft = {
-        bash = { 'shellharden' },
+        bash = { 'shfmt' },
         fish = { 'fish_indent' },
         just = { 'just' },
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
-        sh = { 'shellharden' },
+        sh = { 'shfmt' },
         markdown = { 'prettierd', 'prettier', stop_after_first = true },
         -- toml = { 'prettierd', 'prettier', stop_after_first = true },
         tex = { 'latexindent' },
