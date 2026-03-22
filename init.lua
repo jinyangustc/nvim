@@ -539,6 +539,7 @@ require('lazy').setup({
         update_in_insert = false, -- default to false
         severity_sort = false, -- default to false
       }
+      vim.keymap.set('n', 'K', function() vim.lsp.buf.hover { border = 'rounded' } end)
       -- Brief aside: **What is LSP?**
       --
       -- LSP is an initialism you've probably heard, but might not understand what it is.
@@ -594,8 +595,8 @@ require('lazy').setup({
           map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
           -- show signature
-          map('<leader>k', vim.lsp.buf.signature_help, 'Show signature')
-          vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, { buffer = event.buf, desc = 'LSP: ' .. 'Show signature' })
+          -- map('<leader>k', function() vim.lsp.buf.signature_help { border = 'rounded' } end, 'Show signature')
+          map('<C-s>', function() vim.lsp.buf.signature_help { border = 'rounded' } end, 'Show signature', { 'i', 'n' })
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
