@@ -18,6 +18,9 @@ return {
     --   -- vim.cmd.hi 'Comment gui=none'
     -- end,
   },
-  { 'ellisonleao/gruvbox.nvim', opts = { contrast = 'soft' } },
+  {
+    'ellisonleao/gruvbox.nvim',
+    -- opts = { contrast = 'soft' },
+  },
   { 'savq/melange-nvim' },
 }
