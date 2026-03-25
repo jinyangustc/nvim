@@ -111,9 +111,6 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- toggle spell checking with <leader>s
-vim.keymap.set('n', '<leader>tc', function() vim.opt.spell = not vim.opt.spell:get() end, { desc = '[T]oggle Spell [C]hecking' })
-
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
