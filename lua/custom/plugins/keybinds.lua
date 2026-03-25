@@ -6,4 +6,7 @@ vim.keymap.set('n', '<S-Left>', '<cmd>vertical resize -3<CR>', { desc = 'Resize 
 vim.keymap.set('n', '<S-Right>', '<cmd>vertical resize +3<CR>', { desc = 'Resize split right' })
 vim.keymap.set('n', '<S-Up>', '<cmd>resize +3<CR>', { desc = 'Resize split taller' })
 vim.keymap.set('n', '<S-Down>', '<cmd>resize -3<CR>', { desc = 'Resize split shorter' })
+
+vim.keymap.set('n', '<leader>tc', function() vim.opt.cursorline = not vim.opt.cursorline:get() end, { desc = '[T]oggle [c]ursorline' })
+
 return {}

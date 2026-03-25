@@ -23,4 +23,5 @@ return {
     -- opts = { contrast = 'soft' },
   },
   { 'savq/melange-nvim' },
+  { 'miikanissi/modus-themes.nvim' },
 }

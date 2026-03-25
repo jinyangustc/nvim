@@ -82,7 +82,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.o.inccommand = 'split'
 
 -- Show which line your cursor is on
-vim.o.cursorline = true
+vim.o.cursorline = false
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
@@ -1088,8 +1088,9 @@ require('lazy').setup({
 })
 
 -- vim.cmd.colorscheme 'rose-pine-dawn'
-vim.cmd.colorscheme 'gruvbox'
+-- vim.cmd.colorscheme 'gruvbox'
 -- vim.cmd.colorscheme 'melange'
+vim.cmd.colorscheme 'modus'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
