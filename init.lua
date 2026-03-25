@@ -196,6 +196,19 @@ vim.api.nvim_create_user_command('Bdelete', function()
 end, {})
 vim.keymap.set('n', '<leader>bd', '<Cmd>:Bdelete<CR>', { desc = 'Delete buffer but keep the split' })
 
+-- Reveal the current file's directory in Finder (macOS)
+local function open_in_finder()
+  -- '%': Current file name
+  -- ':p': Get the full path of the file
+  -- ':h': Get the directory of the file
+  local path = vim.fn.expand '%:p:h'
+  vim.fn.jobstart({ 'open', path }, { detach = true })
+end
+
+-- Create a command for easy access
+vim.api.nvim_create_user_command('Reveal', open_in_finder, {})
+vim.keymap.set('n', '<leader>er', '<Cmd>:Reveal<CR>', { desc = '[E]xplore: [r]eveal folder' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
