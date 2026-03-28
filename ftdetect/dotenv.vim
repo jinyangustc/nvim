@@ -1,1 +1,1 @@
-au BufRead,BufNewFile .env,.env.* setfiletype dotenv
+au BufRead,BufNewFile .env,.env.* set filetype=dotenv
