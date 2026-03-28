@@ -741,6 +741,8 @@ require('lazy').setup({
         'shfmt',
         'stylua',
         'taplo',
+        'markdownlint',
+        'pyproject-fmt',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -793,6 +795,14 @@ require('lazy').setup({
         sh = { 'shfmt' },
         markdown = { 'prettierd', 'prettier', stop_after_first = true },
         -- toml = { 'prettierd', 'prettier', stop_after_first = true },
+        toml = function(bufnr)
+          local filename = vim.api.nvim_buf_get_name(bufnr)
+          if filename:match 'pyproject.toml' then
+            return { 'pyproject-fmt' }
+          else
+            return { 'taplo' }
+          end
+        end,
         tex = { 'latexindent' },
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
