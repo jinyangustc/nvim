@@ -1,10 +1,10 @@
 if vim.g.neovide then
-  vim.o.guifont = 'Aporetic Sans Mono:h18'
+  vim.o.guifont = 'DepartureMono Nerd Font:h16'
   vim.g.neovide_cursor_animation_length = 0
   vim.g.neovide_scroll_animation_length = 0
 end
 
-if vim.g.gui_vimr then vim.o.guifont = 'Aporetic Sans Mono:h18' end
+if vim.g.gui_vimr then vim.o.guifont = 'DepartureMono Nerd Font:h16' end
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
