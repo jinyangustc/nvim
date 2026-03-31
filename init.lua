@@ -307,9 +307,10 @@ require('lazy').setup({
 
       -- Document existing key chains
       spec = {
-        { '<leader>e', group = 'Explore' },
+        { '<leader>e', group = '[E]xplore' },
         { '<leader>r', group = 'Slime' },
         { '<leader>g', group = '[G]it' },
+        { '<leader>c', group = '[C]opy' },
 
         { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
         { '<leader>u', group = 'gr[u]g-far', mode = { 'n', 'v' } },

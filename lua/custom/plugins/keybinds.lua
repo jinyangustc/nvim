@@ -36,4 +36,23 @@ end
 
 vim.keymap.set('n', '<leader>sf', my_find_files, { desc = '[S]earch [A]ll files' }) -- you can then bind this to whatever you want
 
+local function copy_path(modifier, label)
+  local cmd = ':let @+ = expand("%' .. modifier .. '")'
+  local path = vim.fn.expand('%' .. modifier)
+  vim.fn.setreg('+', path)
+  vim.notify(cmd .. '\nCopied ' .. label .. ': ' .. path, vim.log.levels.INFO)
+end
+
+-- [C]opy [F]ull Path
+vim.keymap.set('n', '<leader>cf', function() copy_path(':p', 'Full Path') end, { desc = '[C]opy [F]ull Path' })
+
+-- [C]opy [R]elative Path
+vim.keymap.set('n', '<leader>cr', function() copy_path(':. ', 'Relative Path') end, { desc = '[C]opy [R]elative Path' })
+
+-- [C]opy [N]ame (Filename)
+vim.keymap.set('n', '<leader>cn', function() copy_path(':t', 'Filename') end, { desc = '[C]opy [F]ilename' })
+
+-- [C]opy [D]irectory (Folder)
+vim.keymap.set('n', '<leader>cd', function() copy_path(':p:h', 'Folder Path') end, { desc = '[C]opy [Directory Path' })
+
 return {}
