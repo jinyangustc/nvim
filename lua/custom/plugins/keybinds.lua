@@ -9,6 +9,8 @@ vim.keymap.set('n', '<S-Right>', '<cmd>vertical resize +3<CR>', { desc = 'Resize
 vim.keymap.set('n', '<S-Up>', '<cmd>resize +3<CR>', { desc = 'Resize split taller' })
 vim.keymap.set('n', '<S-Down>', '<cmd>resize -3<CR>', { desc = 'Resize split shorter' })
 
+vim.keymap.set('n', '<BS>', '<C-^>', { desc = 'Alternate Buffer' })
+
 local my_find_files
 my_find_files = function(opts, no_ignore)
   opts = opts or {}
