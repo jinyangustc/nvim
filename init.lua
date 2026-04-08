@@ -11,7 +11,7 @@ if vim.g.gui_vimr then vim.o.guifont = 'DepartureMono Nerd Font:h16' end
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-vim.opt.background = 'dark'
+-- vim.opt.background = 'dark'
 vim.opt.termguicolors = true
 
 vim.opt.expandtab = true
@@ -908,7 +908,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      -- vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
 
