@@ -1,5 +1,5 @@
 -- See: https://github.com/tpope/dotfiles/blob/30b0609c6bdc38eb607530d6a1b603dbfdc8a8ef/.vimrc#L97
-vim.opt.laststatus = 1
+vim.opt.laststatus = 2
 -- %-0{minwid}.{maxwid}{item}, so "%.99f" means "path to the file, max width 99 chars"
 --
 -- %n: buffer number

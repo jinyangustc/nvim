@@ -3,6 +3,16 @@ vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = '[T]oggle Soft 
 vim.keymap.set('n', '<leader>ts', '<cmd>windo set scrollbind!<cr>', { desc = '[T]oggle [s]crollbind' })
 vim.keymap.set('n', '<leader>tl', function() vim.opt.cursorline = not vim.opt.cursorline:get() end, { desc = '[T]oggle cursor[l]ine' })
 vim.keymap.set('n', '<leader>tc', function() vim.opt.spell = not vim.opt.spell:get() end, { desc = '[T]oggle Spell [C]hecking' })
+vim.keymap.set('n', '<leader>ta', function()
+  local id = vim.w.non_ascii_match_id
+  if id then
+    pcall(vim.fn.matchdelete, id)
+    vim.w.non_ascii_match_id = nil
+  else
+    vim.api.nvim_set_hl(0, 'NonAscii', { link = 'Error', default = true })
+    vim.w.non_ascii_match_id = vim.fn.matchadd('NonAscii', '[^\\x00-\\x7F]')
+  end
+end, { desc = '[T]oggle non-[A]SCII highlight' })
 
 vim.keymap.set('n', '<S-Left>', '<cmd>vertical resize -3<CR>', { desc = 'Resize split left' })
 vim.keymap.set('n', '<S-Right>', '<cmd>vertical resize +3<CR>', { desc = 'Resize split right' })
